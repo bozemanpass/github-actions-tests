@@ -9,6 +9,8 @@ jobs:
         steps:
             - name: Print beginning disk space before checkout
               run: df -h
+            - name: See what memory we have
+              run: free -h
             - name: Checkout
               uses: actions/checkout@v4
             - name: Print beginning disk space after checkout
@@ -17,4 +19,3 @@ jobs:
               run: | 
                 ls -lh /mnt
                 cat /mnt/DATALOSS_WARNING_README.txt
-
