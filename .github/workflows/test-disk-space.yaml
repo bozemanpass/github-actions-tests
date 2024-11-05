@@ -13,3 +13,5 @@ jobs:
               uses: actions/checkout@v4
             - name: Print beginning disk space after checkout
               uses: ./.github/actions/print-disk-space
+            - name: See what's in the mnt directory
+              run: ls -l /mnt
