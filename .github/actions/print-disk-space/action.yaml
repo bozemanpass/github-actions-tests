@@ -4,4 +4,5 @@ runs:
   using: composite
   steps:
     - name: print disk space
+      shell: bash
       run: df -h
