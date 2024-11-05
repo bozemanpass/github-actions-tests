@@ -7,7 +7,9 @@ jobs:
     test-disk-space:
         runs-on: ubuntu-latest
         steps:
+            - name: Print beginning disk space before checkout
+              uses: ./.github/actions/get_cli
             - name: Checkout
               uses: actions/checkout@v4
-            - name: Print beginning disk space
-              run: df -h
+            - name: Print beginning disk space after checkout
+              uses: ./.github/actions/get_cli

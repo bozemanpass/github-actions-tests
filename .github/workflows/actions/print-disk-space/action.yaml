@@ -1,0 +1,7 @@
+name: print-disk-space
+description: prints the current disk space
+runs:
+  using: composite
+  steps:
+    - name: print disk space
+      run: df -h
