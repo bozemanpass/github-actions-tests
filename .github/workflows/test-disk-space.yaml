@@ -14,4 +14,7 @@ jobs:
             - name: Print beginning disk space after checkout
               uses: ./.github/actions/print-disk-space
             - name: See what's in the mnt directory
-              run: ls -l /mnt
+              run: | 
+                ls -lh /mnt
+                cat /mnt/DATALOSS_WARNING_README.txt
+
