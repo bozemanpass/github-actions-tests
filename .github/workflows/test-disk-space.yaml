@@ -8,8 +8,8 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Print beginning disk space before checkout
-              uses: ./.github/actions/get_cli
+              uses: ./.github/actions/geprint-disk-space
             - name: Checkout
               uses: actions/checkout@v4
             - name: Print beginning disk space after checkout
-              uses: ./.github/actions/get_cli
+              uses: ./.github/actions/print-disk-space
