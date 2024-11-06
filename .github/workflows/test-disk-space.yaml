@@ -50,7 +50,8 @@ jobs:
             - name: Build target project
               continue-on-error: true
               run: |
-                mkdir /mnt/cargo-target
+                sudo mkdir /mnt/cargo-target
+                sudo chown $(whoami) /mnt/cargo-target
                 cd ./aptos-core
                 CARGO_TARGET_DIR=/mnt/cargo-target cargo build
             - name: Print disk space after checkout build
