@@ -48,7 +48,8 @@ jobs:
             - name: Build target project
               continue-on-error: true
               run: |
+                mkdir /mnt/cargo-target
                 cd ./aptos-core
-                cargo build
+                CARGO_TARGET_DIR=/mnt/cargo-target cargo build
             - name: Print disk space after checkout build
               uses: ./.github/actions/print-disk-space
