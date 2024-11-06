@@ -11,6 +11,11 @@ jobs:
               run: df -h
             - name: See what memory we have
               run: free -h
+            - name: Maximize build space
+              uses: AdityaGarg8/remove-unwanted-software@v4.1
+              with:
+                remove-android: 'true'
+                remove-docker-images: 'true'
             - name: Checkout
               uses: actions/checkout@v4
             - name: Print disk space after checkout
