@@ -41,8 +41,9 @@ jobs:
             - name: Print disk space after checkout target repo
               uses: ./.github/actions/print-disk-space
             - name: Build target project
+              continue-on-error: true
               run: |
                 cd ./aptos-core
-                cargo build ; df -h
+                cargo build
             - name: Print disk space after checkout build
               uses: ./.github/actions/print-disk-space
