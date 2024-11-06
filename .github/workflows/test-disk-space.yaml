@@ -13,9 +13,16 @@ jobs:
               run: free -h
             - name: Checkout
               uses: actions/checkout@v4
-            - name: Print beginning disk space after checkout
+            - name: Print disk space after checkout
               uses: ./.github/actions/print-disk-space
             - name: See what's in the mnt directory
               run: | 
                 ls -lh /mnt
                 cat /mnt/DATALOSS_WARNING_README.txt
+            - name: Install OS packages required for build
+              uses: awalsh128/cache-apt-pkgs-action@latest
+              with:
+                packages: cmake curl clang pkg-config libssl-dev libpq-dev libdw-dev binutils lld libudev-dev
+                version: 1.0 # This is a cache key -- change it when you change the package list above
+            - name: Print disk space after package install
+              uses: ./.github/actions/print-disk-space
