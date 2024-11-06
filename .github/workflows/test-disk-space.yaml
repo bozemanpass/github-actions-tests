@@ -43,6 +43,6 @@ jobs:
             - name: Build target project
               run: |
                 cd ./aptos-core
-                cargo build
+                cargo build ; df -h
             - name: Print disk space after checkout build
               uses: ./.github/actions/print-disk-space
