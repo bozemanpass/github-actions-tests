@@ -26,3 +26,10 @@ jobs:
                 version: 1.0 # This is a cache key -- change it when you change the package list above
             - name: Print disk space after package install
               uses: ./.github/actions/print-disk-space
+            - name: Install Rust Toolchain
+              uses: dtolnay/rust-toolchain@master
+              with:
+                toolchain: 1.78.0
+                components: clippy, rustfmt
+            - name: Print disk space after rust toolchain install
+              uses: ./.github/actions/print-disk-space
