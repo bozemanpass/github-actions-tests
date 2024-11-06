@@ -33,3 +33,16 @@ jobs:
                 components: clippy, rustfmt
             - name: Print disk space after rust toolchain install
               uses: ./.github/actions/print-disk-space
+            - name: Checkout target project repo
+              uses: actions/checkout@v4
+              with:
+                repository: aptos-labs/aptos-core
+                path: './aptos-core'
+            - name: Print disk space after checkout target repo
+              uses: ./.github/actions/print-disk-space
+            - name: Build target project
+              run: |
+                cd ./aptos-core
+                cargo build
+            - name: Print disk space after checkout build
+              uses: ./.github/actions/print-disk-space
